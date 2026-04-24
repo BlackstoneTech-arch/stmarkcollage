@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>St. Marks Theological college.</title>
+
+<style>
+:root{
+  --primary:#16a34a;
+  --dark:#0f172a;
+  --card:#1e293b;
+  --text:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui;
+}
+
+body{
+  background:var(--dark);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  width:100%;
+  height: 20vh;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+  transition:0.3s;
+}
+
+header h1{
+  color:var(--primary);
+}
+
+nav a{
+  margin-left:20px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+  float: right;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+/* HERO VIDEO */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero video{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+  filter:brightness(50%);
+}
+
+.hero h2{
+  font-size:60px;
+  animation:fadeUp 1s ease;
+}
+
+.hero p{
+  margin:15px 0;
+}
+
+.btn{
+  padding:12px 25px;
+  background:var(--primary);
+  border:none;
+  color:white;
+  cursor:pointer;
+  margin:5px;
+  border-radius:5px;
+  transition:0.3s;
+align-items: center;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:#22c55e;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 40px;
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  background:rgba(255,255,255,0.08);
+}
+
+/* GALLERY */
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  transition:0.5s;
+  cursor:pointer;
+}
+
+.gallery img:hover{
+  transform:scale(1.08);
+  filter:brightness(80%);
+}
+
+/* CONTACT */
+.contact{
+  background:#020617;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(50px);}
+  to{opacity:1; transform:translateY(0);}
+}
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+}
+.slider{
+  position:relative;
+  width:100%;
+  height:200px;
+  overflow:hidden;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:0.5s;
+}
+.slide.active{
+  opacity:1;
+}
+
+.slider{
+  position:relative;
+  width:100%;
+  height:180px;
+  overflow:hidden;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+.slider img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:1s;
+}
+
+.slider img.active{
+  opacity:1;
+}
+
+/* smooth hover effect */
+.slider-card:hover .slider img{
+  filter:brightness(85%);
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 10px 30px rgba(0,255,100,0.15);
+}
+
+.bg-slider{
+  position:relative;
+  overflow:hidden;
+  height:260px;
+  border-radius:15px;
+}
+
+/* BACKGROUND SLIDES */
+.bg-slide{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:1s ease;
+  transform:scale(1.1);
+}
+
+.bg-slide.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* DARK OVERLAY FOR TEXT READABILITY */
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+}
+
+/* TEXT CONTENT ON TOP */
+.content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:20px;
+}
+
+/* BUTTON FIX INSIDE CARDS */
+.bg-slider .btn{
+  margin-top:10px;
+}
+
+.footer{
+  background:#020617;
+  padding:60px 40px 20px;
+  color:white;
+  margin-top:50px;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.footer-box h2,
+.footer-box h3{
+  color:#16a34a;
+  margin-bottom:10px;
+}
+
+.footer-box p{
+  opacity:0.8;
+  line-height:1.6;
+}
+
+.footer-box a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:6px 0;
+  opacity:0.8;
+  transition:0.3s;
+}
+
+.footer-box a:hover{
+  color:#16a34a;
+  opacity:1;
+  transform:translateX(5px);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:30px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  opacity:0.7;
+}
+
+
+ .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border: 3px solid #20720e;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 25px;
+       color:rgb(23, 116, 28);
+       
+    }
+
+    .title p {
+      margin: 0;
+      color: hsl(214, 33%, 96%);
+      font-style: italic;
+      font-size: 14px;
+    }
+
+
+    .be {
+      display: inline-block;
+      margin-left: 10px;
+      text-decoration: none;
+      color: white;
+      background: #16a34a;
+      text-decoration-color: #ffffff;
+    }
+
+</style>
+</head>
+<body>
+
+
+<header id="header">
+
+  <div class="logo-title"><div class="logo"><img src="images/logo.jpeg"></div>
+  <div class="title"><h1>THE ANGLICAN CHURCH OF TANZANIA</h1>   <p>St. Marks Theological College</p></div></div>
+  <div class="menu">
+    <nav>
+  
+    <a href="campus.html">Campus</a>
+    <a href="library.html">Library</a>
+    <a href="lecture.html">Lecture Venues</a>
+    <a href="environment.html">Environment</a>
+    <a href="admission.html">Admission</a>
+    <a href="student.html">Student</a>
+    <a href="login.html">Login</a>
+      <a href="index.html">Home</a>
+    </nav>
+
+</header>
+
+<br><br><br><br> <br><br><br><br><br><br>
+<h2>Student Campus Life</h2>
+
+<div class="grid">
+<div class="card">
+<img src="images/class1.jpeg" style="width:100%;border-radius:10px;">
+<p>Students engaging in learning activities</p>
+</div>
+
+<div class="card">
+<img src="images/lib4.jpeg" style="width:100%;border-radius:10px;">
+<p>Collage library</p>
+</div>
+
+
+<div class="card">
+
+<img src="images/gr.jpeg" style="width:100%;border-radius:10px;">
+<p>Group discussions and teamwork</p>
+</div>
+
+
+<div class="card">
+
+<img src="images/host.jpeg" style="width:100%;border-radius:10px;">
+<p>Collage hostel</p>
+</div>
+
+
+<div class="card">
+
+<img src="images/class2.jpeg" style="width:100%;border-radius:10px;">
+<p>Collage Venues</p>
+</div>
+
+<div class="card">
+
+<img src="images/prev1.jpeg" style="width:100%;border-radius:10px;">
+<p>Collage Hall</p>
+</div>
+
+
+
+
+
+
+
+<div class="card">
+<h1>News and updates </h1>
+<img src="images/prev1.jpeg" style="width:100%;border-radius:10px;">
+<marquee><p>Apply for Admission  now </p></marquee>
+</div>
+</div>
+</section>
+<!-- EXTRA CAMPUS LIFE CONTENT -->
+<section>
+<h2 class="section-title">Campus Life Experience</h2>
+
+<div class="grid">
+
+<div class="card">
+  <h3>Spiritual Growth</h3>
+  <p>
+    At St. Marks Theological College, students grow spiritually through daily prayers,
+    chapel services, and mentorship programs guided by experienced clergy.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Academic Excellence</h3>
+  <p>
+    The college provides a strong theological foundation with qualified lecturers,
+    modern learning resources, and interactive teaching methods.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Community Life</h3>
+  <p>
+    Students live in a supportive Christian community that encourages unity,
+    teamwork, and shared responsibilities in daily activities.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Leadership Development</h3>
+  <p>
+    Through seminars, workshops, and ministry practice, students are equipped
+    with leadership skills for service in churches and society.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Recreation & Wellbeing</h3>
+  <p>
+    The campus supports student wellbeing through sports, social activities,
+    and a peaceful environment for relaxation and reflection.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Outreach Programs</h3>
+  <p>
+    Students participate in community outreach, evangelism, and service projects,
+    applying their knowledge in real-life ministry.
+  </p>
+</div>
+
+</div>
+</section>
+
+
+</script>
+
+</body>
+</html>

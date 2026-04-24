@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Green Environment</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>St. Mark Anglican University</title>
+
+<style>
+:root{
+  --primary:#16a34a;
+  --dark:#0f172a;
+  --card:#1e293b;
+  --text:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui;
+}
+
+body{
+  background:var(--dark);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  width:100%;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+  transition:0.3s;
+}
+
+header h1{
+  color:var(--primary);
+}
+
+nav a{
+  margin-left:20px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+/* HERO VIDEO */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero video{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+  filter:brightness(50%);
+}
+
+.hero h2{
+  font-size:60px;
+  animation:fadeUp 1s ease;
+}
+
+.hero p{
+  margin:15px 0;
+}
+
+.btn{
+  padding:12px 25px;
+  background:var(--primary);
+  border:none;
+  color:white;
+  cursor:pointer;
+  margin:5px;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:#22c55e;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 40px;
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  background:rgba(255,255,255,0.08);
+}
+
+/* GALLERY */
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  transition:0.5s;
+  cursor:pointer;
+}
+
+.gallery img:hover{
+  transform:scale(1.08);
+  filter:brightness(80%);
+}
+
+/* CONTACT */
+.contact{
+  background:#020617;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(50px);}
+  to{opacity:1; transform:translateY(0);}
+}
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+}
+
+ .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border: 3px solid #20720e;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 30px;
+       color:rgb(23, 116, 28);
+       
+    }
+
+    .title p {
+      margin: 0;
+      color: hsl(214, 33%, 96%);
+      font-style: italic;
+      font-size: 14px;
+    }
+
+
+    .be {
+      display: inline-block;
+      margin-left: 10px;
+      text-decoration: none;
+      color: white;
+      background: #16a34a;
+      text-decoration-color: #ffffff;
+    }
+
+a{
+  text-decoration:none;
+  color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+
+<header id="header">
+
+  <div class="logo-title"><div class="logo"><img src="images/logo.jpeg"></div>
+  <div class="title"><h1>THE ANGLICAN CHURCH OF TANZANIA</h1>   <p>St. Marks Theological College</p></div></div>
+  <div class="menu">
+    <nav>
+  
+    <a href="campus.html">Campus</a>
+    <a href="library.html">Library</a>
+    <a href="lecture.html">Lecture Venues</a>
+    <a href="environment.html">Environment</a>
+    <a href="admission.html">Admission</a>
+    <a href="student.html">Student</a>
+    <a href="login.html">Login</a>
+      <a href="index.html">Home</a>
+    </nav>
+    <div class="system-bar">
+      <span id="date"></span>
+      <span id="time"></span>
+
+ 
+</div>
+  </div>
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+</header>
+
+
+<br><br><br><br><br>
+
+<h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">Green Environment</h1>
+
+
+
+<section class="container fade">
+
+  
+<h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">Green Environment</h1>
+
+
+<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">
+  St. Marks Theological College is committed to providing a serene and spiritually enriching environment for our students. Our campus is surrounded by lush greenery, creating a peaceful atmosphere that fosters reflection and growth. We believe that a harmonious environment enhances the learning experience and supports the spiritual journey of our students.
+</p>
+
+
+<section class="container fade">
+ 
+<h2>Natural Learning Environment</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/e4.jpeg" style="width:100%;border-radius:10px;">
+<h3>Gardens</h3>
+<p>Peaceful outdoor study areas.</p>
+</div>
+
+<div class="card">
+<img src="images/e1.jpeg" style="width:100%;border-radius:10px;">
+<h3>Open Spaces</h3>
+<p>Relaxing environment for students.</p>
+</div>
+
+<div class="card">
+<img src="images/env/Administration Brock.jpeg" style="width:100%;border-radius:10px;">
+<h3>Administration Building</h3>
+<p>Peaceful outdoor study areas.</p>
+</div>
+
+
+<div class="card">
+<img src="images/env/hos.jpeg" style="width:100%;border-radius:10px;">
+<h3>Student Hostels</h3>
+<p>Comfortable living spaces for students.</p>
+</div>
+
+
+<div class="card">
+<img src="images/env/in Venue.jpeg" style="width:100%;border-radius:10px;">
+<h3>Indoor Venues</h3>
+<p>Peaceful indoor study areas.</p>
+</div>
+
+
+
+
+<div class="card">
+<img src="images/env/out venues.jpeg" style="width:100%;border-radius:10px;">
+<h3>Outdoor Venues</h3>
+<p>Peaceful outdoor study areas.</p>
+</div>
+
+
+<div class="card">
+<img src="images/env/study area.jpeg" style="width:100%;border-radius:10px;">
+<h3>Study Areas</h3>
+<p>Peaceful study areas.</p>
+</div>
+
+
+
+
+</div>
+
+</section>
+
+<br><br><br><br>
+
+<div class="container fade">
+  <div class="card">
+    <h2>College Environment</h2>
+    <p>
+      St. Marks Theological College provides a peaceful and spiritually enriching environment
+      designed to support academic excellence and personal growth.
+    </p>
+  </div>
+</div>
+
+<div class="container fade">
+  <div class="card">
+    <h2>Learning Atmosphere</h2>
+    <p>
+      Our campus promotes focused learning through quiet study areas, modern classrooms,
+      and access to theological resources that support deep understanding.
+    </p>
+  </div>
+</div>
+
+<div class="container fade">
+  <div class="card">
+    <h2>Spiritual Life</h2>
+    <p>
+      Daily prayers, chapel services, and fellowship sessions create a strong spiritual foundation
+      for all students within the college.
+    </p>
+  </div>
+</div>
+
+<div class="container fade">
+  <div class="card">
+    <h2>Campus Facilities</h2>
+    <ul>
+      <li>Library and study rooms</li>
+      <li>Student hostels</li>
+      <li>Dining facilities</li>
+      <li>Lecture halls</li>
+      <li>Recreational areas</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container fade">
+  <div class="card">
+    <h2>Safety & Community</h2>
+    <p>
+      The college ensures a safe and supportive environment where students live, learn,
+      and grow together as a community.
+    </p>
+  </div>
+</div>
+
+
+<br><br><br>
+
+  <!-- QUICK LINKS -->
+  <div class="footer-box">
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="admission.html">Admissions</a>
+    <a href="library.html">Library</a>
+    <a href="student.html">Student Portal</a>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="footer-box">
+    <h3>Contact</h3>
+    <p>📍 Buguluni,Dar es Salaam, Tanzania</p>
+    <p>📧 st. mark'stheocollage@gmail.com</p>
+    <p>📞 +255656325703</p>
+  </div>
+
+</div>
+
+<div class="footer-bottom">
+  <p>© 2026 St. Mark's Theological College | All Rights Reserved</p>
+</div>
+
+</footer>
+
+<script>
+document.querySelectorAll('.fade').forEach(el => {
+  el.classList.add('show');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin SIS</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Admin Dashboard</h1>
+<nav>
+<a href="index.html">Home</a>
+</nav>
+</header>
+
+<section class="container fade">
+
+<h2>Admission Management</h2>
+
+<table class="card" width="100%">
+<thead>
+<tr>
+
+<th>Name</th>
+<th>Email</th>
+<th>Course</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="admissionTable"></tbody>
+</table>
+
+</section>
+
+<section class="container fade">
+
+<h2>System Analytics</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <canvas id="admissionChart"></canvas>
+  </div>
+
+  <div class="card">
+    <canvas id="paymentChart"></canvas>
+  </div>
+
+</div>
+
+</section>
+
+<script src="js/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
