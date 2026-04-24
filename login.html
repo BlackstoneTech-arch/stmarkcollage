@@ -1,14 +1,29 @@
-<div class="login-box">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Marks SIS Login</title>
 
-  <h2>St. Marks SIS Login</h2>
+  <!-- Link to your main CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-  <input id="email" placeholder="University Email">
-  <input id="password" type="password" placeholder="Password">
+</head>
 
-  <button onclick="login()">Login</button>
+<body>
 
-  <p id="msg"></p>
+  <div class="login-box">
+    <h2>St. Marks SIS Login</h2>
 
-</div>
+    <input id="email" type="email" placeholder="University Email">
+    <input id="password" type="password" placeholder="Password">
 
-<script src="js/auth.js"></script>
+    <button onclick="login()">Login</button>
+
+    <p id="msg"></p>
+  </div>
+
+  <script src="js/auth.js"></script>
+
+</body>
+</html>
