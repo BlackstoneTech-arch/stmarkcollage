@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>St. Marks Theological college.</title>
+
+<style>
+:root{
+  --primary:#16a34a;
+  --dark:#0f172a;
+  --card:#1e293b;
+  --text:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui;
+}
+
+body{
+  background:var(--dark);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  width:100%;
+  height: 20vh;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+  transition:0.3s;
+}
+
+header h1{
+  color:var(--primary);
+}
+
+nav a{
+  margin-left:20px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+  float: right;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+/* HERO VIDEO */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero video{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+  filter:brightness(50%);
+}
+
+.hero h2{
+  font-size:60px;
+  animation:fadeUp 1s ease;
+}
+
+.hero p{
+  margin:15px 0;
+}
+
+.btn{
+  padding:12px 25px;
+  background:var(--primary);
+  border:none;
+  color:white;
+  cursor:pointer;
+  margin:5px;
+  border-radius:5px;
+  transition:0.3s;
+align-items: center;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:#22c55e;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 40px;
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  background:rgba(255,255,255,0.08);
+}
+
+/* GALLERY */
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  transition:0.5s;
+  cursor:pointer;
+}
+
+.gallery img:hover{
+  transform:scale(1.08);
+  filter:brightness(80%);
+}
+
+/* CONTACT */
+.contact{
+  background:#020617;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(50px);}
+  to{opacity:1; transform:translateY(0);}
+}
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+}
+.slider{
+  position:relative;
+  width:100%;
+  height:200px;
+  overflow:hidden;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:0.5s;
+}
+.slide.active{
+  opacity:1;
+}
+
+.slider{
+  position:relative;
+  width:100%;
+  height:180px;
+  overflow:hidden;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+.slider img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:1s;
+}
+
+.slider img.active{
+  opacity:1;
+}
+
+/* smooth hover effect */
+.slider-card:hover .slider img{
+  filter:brightness(85%);
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 10px 30px rgba(0,255,100,0.15);
+}
+
+.bg-slider{
+  position:relative;
+  overflow:hidden;
+  height:260px;
+  border-radius:15px;
+}
+
+/* BACKGROUND SLIDES */
+.bg-slide{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:1s ease;
+  transform:scale(1.1);
+}
+
+.bg-slide.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* DARK OVERLAY FOR TEXT READABILITY */
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+}
+
+/* TEXT CONTENT ON TOP */
+.content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:20px;
+}
+
+/* BUTTON FIX INSIDE CARDS */
+.bg-slider .btn{
+  margin-top:10px;
+}
+
+.footer{
+  background:#020617;
+  padding:60px 40px 20px;
+  color:white;
+  margin-top:50px;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.footer-box h2,
+.footer-box h3{
+  color:#16a34a;
+  margin-bottom:10px;
+}
+
+.footer-box p{
+  opacity:0.8;
+  line-height:1.6;
+}
+
+.footer-box a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:6px 0;
+  opacity:0.8;
+  transition:0.3s;
+}
+
+.footer-box a:hover{
+  color:#16a34a;
+  opacity:1;
+  transform:translateX(5px);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:30px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  opacity:0.7;
+}
+
+
+ .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border: 3px solid #20720e;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 30px;
+       color:rgb(23, 116, 28);
+       
+    }
+
+    .title p {
+      margin: 0;
+      color: hsl(214, 33%, 96%);
+      font-style: italic;
+      font-size: 14px;
+    }
+
+
+    .be {
+      display: inline-block;
+      margin-left: 10px;
+      text-decoration: none;
+      color: white;
+      background: #16a34a;
+      text-decoration-color: #ffffff;
+    }
+
+a{
+  text-decoration:none;
+  color:white;
+}
+
+</style>
+</head>
+<body>
+
+<header id="header">
+
+  <div class="logo-title"><div class="logo"><img src="images/logo.jpeg"></div>
+  <div class="title"><h1>THE ANGLICAN CHURCH OF TANZANIA</h1>   <p>St. Marks Theological College</p></div></div>
+  <div class="menu">
+    <nav>
+  
+    <a href="campus.html">Campus</a>
+    <a href="library.html">Library</a>
+    <a href="lecture.html">Lecture Venues</a>
+    <a href="environment.html">Environment</a>
+    <a href="admission.html">Admission</a>
+    <a href="student.html">Student</a>
+    <a href="login.html">Login</a>
+      <a href="index.html">Home</a>
+    </nav>
+    <div class="system-bar">
+      <span id="date"></span>
+      <span id="time"></span>
+ 
+</div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+</header>
+
+<!-- HERO VIDEO -->
+<section class="hero">
+<video autoplay muted loop playsinline>
+  <source src="vid/homevid.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div>
+<h2>St. Marks Theological college</h2>
+<p>Faith • Knowledge • Service</p>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+
+
+<br><br><br><br><br><br>
+<h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">Welcome to St. Marks Theological college</h1>
+<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">Join us in our mission to develop competent graduates who are grounded in academic excellence, Christian values, and ethical leadership.
+Our university serves as a center of knowledge, innovation, and spiritual formation for the transformation of society.</p>
+</section>
+<!-- ADS / BRANDING SECTION -->
+
+<section class="container fade">
+
+<h2 class="section-title">Campus Branding & Promotions</h2>
+
+<div class="grid">
+
+<!-- VIDEO AD -->
+<div class="card">
+  <h3>Campus Promotion Video</h3>
+
+  <video controls style="width:100%;border-radius:10px;">
+    <source src="vid/00048.MTS" type="video/mts">
+    Your browser does not support video.
+  </video>
+
+  <p>Explore life at St. Marks Theological College.</p>
+</div>
+
+<!-- IMAGE SLIDER AD -->
+<div class="card">
+  <h3>College Highlights</h3>
+
+  <div class="slider">
+    <img src="images/staff/WANAFUNZI WAMESIMAMA.jpg" class="active" size="50px">
+    <img src="images/staff/MBULINYINGI.jpg" class="active" size="50px">
+    <img src="images/staff/LUOGA.jpg" class="active" size="50px">
+  </div>
+
+  <p>Discover our campus, students, and activities.</p>
+</div>
+
+<!-- PROMO TEXT -->
+<div class="card">
+  <h3>Apply Now</h3>
+  <p>
+    Join St. Marks Theological College and become part of a strong academic
+    and spiritual community.
+  </p>
+
+  <a href="admission.html">
+    <button class="btn">Apply Today</button>
+  </a>
+</div>
+
+</div>
+
+</section>
+
+</p>
+
+<div class="grid">
+ 
+<section class="fade">
+<h2 class="section-title">Quick Access</h2>
+
+<div class="grid">
+
+<!-- APPLY -->
+<div class="grid">
+
+<!-- APPLY NOW CARD -->
+<div class="card bg-slider">
+  <div class="bg-slide active" style="background-image:url('images/g1.jpeg')"></div>
+  <div class="bg-slide" style="background-image:url('images/g2.jpeg')"></div>
+  <div class="bg-slide" style="background-image:url('images/g4.jpeg')"></div>
+
+  <div class="overlay"></div>
+
+  <div class="content">
+    <h3>Apply Now</h3>
+    <p>Start your journey at St. Marks Theological college.</p>
+    <a href="admission.html">
+      <button class="btn">Start Application</button>
+    </a>
+  </div>
+</div>
+
+<!-- ADMISSION CARD -->
+<div class="card bg-slider">
+
+  <!-- SLIDING BACKGROUNDS -->
+  <div class="bg-slide active" style="background-image:url('images/e1.jpeg')"></div>
+  <div class="bg-slide" style="background-image:url('images/lib3.jpeg')"></div>
+  <div class="bg-slide" style="background-image:url('images/g3.jpeg')"></div>
+
+  <!-- DARK OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <h3>Admission Portal</h3>
+    <p>Check requirements and submit your application to joinSt. Marks Theological college.</p>
+
+    <a href="admission.html">
+      <button class="btn">Apply Here</button>
+    </a>
+  </div>
+
+</div>
+
+</div>
+
+<!-- ADMISSION -->
+<div class="card" style="text-align:center;">
+  <div style="font-size:40px;"></div>
+  <h3>Sign Up/Login</h3>
+  
+ <br><br> 
+
+
+  <p style="text-align:center;">login to your account.</p>
+  <br> 
+  <a href="register.html" style="text-decoration:none; text-align:center;">
+    <button class="btn">Register</button>
+  </a>
+  <a href="login.html"  style="text-decoration:none; text-align:center;">
+    <button class="btn">Login</button>
+  </a>
+</div>
+
+</div>
+</section>
+   
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+<h2 class="section-title">About Us</h2>
+<p>
+St. Marks Theological College is a faith-based higher learning institution under the Anglican Church of Tanzania.
+We are committed to developing competent graduates who are grounded in academic excellence, Christian values, and ethical leadership.
+Our university serves as a center of knowledge, innovation, and spiritual formation for the transformation of society.
+</p>
+</section>
+
+<section>
+<h2 class="section-title">Why Choose Us</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Spiritual Growth</h3>
+<p>We nurture leaders grounded in Christian values and service.</p>
+</div>
+
+<div class="card">
+<h3>Academic Excellence</h3>
+<p>Quality education with modern learning systems.</p>
+</div>
+
+<div class="card">
+<h3>Community Impact</h3>
+<p>Transforming society through leadership and knowledge.</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- VISION -->
+<section id="vision" class="fade">
+<h2 class="section-title">ST.MARK’S VISION </h2>
+<p>
+ A vibrant and unified Provincial hub of learning that forms visionary servant leaders to proclaim the Gospel and serve the holistic needs of humanity.
+</p>
+</section>
+
+
+<!-- MISSION -->
+<section id="mission" class="fade">
+<h2 class="section-title">ST.MARK’S Mission</h2>
+<p>
+ To provide high-quality, contextual theological training that integrates biblical truth with social responsibility, empowering graduates to lead their communities with integrity and professional excellence.
+</p>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="fade">
+<h2 class="section-title">Programs</h2>
+
+<section id="courses" class="fade">
+<h2 class="section-title">Academic Programs</h2>
+
+<div class="grid">
+
+<!-- DIPLOMA IN THEOLOGY -->
+<div class="card">
+  <h3>Diploma in Theology</h3>
+  <p>
+    A comprehensive theological program designed to equip students with deep knowledge of the Bible,
+    Christian doctrine, pastoral ministry, and church leadership. This program prepares graduates to serve
+    effectively in ministry, mission work, and community transformation.
+  </p>
+
+  <a href="admission.html">
+    <button class="btn">Apply Now</button>
+  </a>
+</div>
+
+<!-- CERTIFICATE IN THEOLOGY -->
+<div class="card">
+  <h3>Certificate in Theology</h3>
+  <p>
+    A foundational program aimed at building basic understanding of Christian faith, biblical teachings,
+    and ministry practices. Ideal for individuals seeking spiritual growth or entry-level church service roles.
+  </p>
+
+  <a href="admission.html">
+    <button class="btn">Apply Now</button>
+  </a>
+</div>
+
+<!-- SHORT COURSE COMPUTER -->
+<div class="card">
+  <h3>Short Course in Computer Applications</h3>
+  <p>
+    A practical course covering essential computer skills including Microsoft Office, internet usage,
+    digital communication, and basic IT knowledge. Designed to equip students with modern digital skills
+    for academic and professional environments.
+  </p>
+
+  <a href="admission.html">
+    <button class="btn">Apply Now</button>
+  </a>
+</div>
+
+</div>
+</section>  
+</div>
+</section>
+
+
+
+<!-- CAMPUS -->
+<section id="campus" class="fade">
+<h2 class="section-title">Campus & Environment</h2>
+
+<div class="grid">
+<div class="grid">
+
+<!-- CAMPUS LIFE -->
+<div class="card slider-card">
+  <div class="slider">
+    <img src="images/e1.jpeg" class="slide active">
+    <img src="images/e2.jpeg" class="slide">
+    <img src="images/e3.jpeg" class="slide">
+  </div>
+
+  <a href="campus.html" style="color:white;text-decoration:none;">
+    <h3>Campus Life</h3>
+    <p>Explore student life, activities and learning environment.</p>
+  </a>
+</div>
+
+<!-- LIBRARY -->
+<div class="card slider-card">
+  <div class="slider">
+    <img src="images/lib1.jpeg" class="slide active">
+    <img src="images/lib2.jpeg" class="slide">
+    <img src="images/lib4.jpeg" class="slide">
+  </div>
+
+  <a href="library.html" style="color:white;text-decoration:none;">
+    <h3>Library</h3>
+    <p>Digital & physical academic resources.</p>
+  </a>
+</div>
+
+<!-- LECTURE VENUES -->
+<div class="card slider-card">
+  <div class="slider">
+    <img src="images/class1.jpeg" class="slide active">
+    <img src="images/class2.jpeg" class="slide">
+    <img src="images/lib5.jpeg" class="slide">
+  </div>
+
+  <a href="lecture.html" style="color:white;text-decoration:none;">
+    <h3>Lecture Venues</h3>
+    <p>Modern classrooms and seminar halls.</p>
+  </a>
+</div>
+
+<!-- ENVIRONMENT -->
+<div class="card slider-card">
+  <div class="slider">
+    <img src="images/e3.jpeg" class="slide active">
+    <img src="images/e7.jpeg" class="slide">
+    <img src="images/prev1.jpeg" class="slide">
+  </div>
+
+  <a href="environment.html" style="color:white;text-decoration:none;">
+    <h3>Green Environment</h3>
+    <p>Natural peaceful learning environment.</p>
+  </a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="fade">
+<h2 class="section-title">Staff Member</h2>
+
+<div class="grid gallery">
+  <section>
+<img src="images/staff/KOMBA.jpg">
+<h2>Principal</h2>
+<p>Canon Karstus Komba</p>
+</section>
+<section>
+<img src="images/staff/SHAPEMBA.jpg">
+<h2>Chaplin</h2>
+<p>Rev.Canon Emmanuel Shapemba</p>
+</section>
+
+<!-- edit staff member-->
+<section>
+<img src="images/staff/MADAM.jpg">
+<h2> Lecture  </h2>
+<p>Rev. Eldah Katoto  </p>
+</section>
+
+<section>
+<img src="images/staff/MBULINYINGI.jpg">
+<h2> Lecture  </h2>
+<p>Rev. Canon Mbulinyingi</p>
+
+</section>
+
+<section>
+<img src="images/staff/rev.jpeg">
+<h2>Lecture</h2>
+<p> Rev.Fr.Gerikoshua Baliko</p>
+</section>
+
+<section>
+<img src="images/staff/mari.jpeg">
+<h2>Lecture </h2>
+<p>Mariam Mrekoni</p>
+</section>
+
+<section>
+<img src="images/l3.jpeg">
+<h2>Vice Principal</h2>
+</section>
+<section>
+<img src="images/staff/WANAFUNZI WAMESIMAMA.jpg">
+<h2>Student Affairs</h2>
+</section>
+
+
+</div>
+</section>
+
+<!-- CHURCH -->
+<section class="fade">
+<h2 class="section-title">Church Foundation</h2>
+<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: larger;">
+ST. MARK’S COLLEGE OF THE ANGLICAN CHURCH OF TANZANIA, BUGURUNI MALAPA, DAR ES SALAAM
+St. Mark’s College, located in Buguruni Malapa, is one of the oldest theological training institutions of the Anglican Church of Tanzania. It has produced many priests and bishops who have served both within the Anglican Church and in other Christian denominations.
+The college was originally established in 1894 at Mazizini, Zanzibar. In 1906, it was moved to Kiungani and became part of St. Paul’s College. Its primary aim was to train priests for the Universities Mission to Central Africa.
+On October 24, 1899, Bishop William Moore Richardson, the second Bishop of the Diocese of Zanzibar, separated it from St. Andrew’s and formally established it as St. Mark’s at Mazizini, Unguja, under Father Frank Weston.
+The college faced several challenges and was eventually closed on July 23, 1911. In 1917, it was relocated to Hegongo, Muheza, and continued its journey. After the establishment of the Diocese of Masasi on September 29, 1926, Bishop William Vincent Lucas saw the importance of having a local training college to reduce the need for priests to travel to Hegongo or Kiungani for theological education.
+Bishop Lucas purchased land at Namasakata and established St. Cyprian’s College, which opened in September 1930 under Father Frank Oswald Thorne, who later became Bishop of Nyasaland (Malawi) in 1936.
+The college began with seven students but was closed in 1934 after Father Thorne left. It reopened in 1936 under Father Rodgers Lamburn, introducing training programs for priests’ wives. Women were taught literacy, sewing altar garments and clerical vestments, and midwifery. However, the college was again temporarily closed in 1948 before reopening under Father Harold Wilkins.
+Meanwhile, the Diocese of Zanzibar decided during its Synod in January 1944 to relocate Hegongo College to Kalole Minaki under Father Neil Russell, where teaching continued in English.
+On November 30, 1960, when Trevor Huddlestone was consecrated Bishop of Masasi, he purchased land at Ngala Rondo and moved St. Cyprian’s College there from Namasakata. Training was conducted in both Kiswahili and English.
+Later, on July 31, 1969, St. Mark’s College was re-established in Buguruni Malapa by Archbishop John Thomas Mhina Sepeku.
+Archbishop Sepeku proposed relocating St. Cyprian’s College from Rondo to Buguruni Malapa (also known as Kichwele), a move supported by many UMCA bishops because of easier access to Dar es Salaam.
+The Buguruni Malapa site was part of the Kichwele estate, originally purchased by European missionaries in 1893 after acquiring land in Mbweni, Zanzibar, which had become overcrowded with freed slaves awaiting repatriation.
+Deacon Denys Seyiti and his wife Rebeka were entrusted with managing the farm and maintaining the property.
+After Bishop Huddlestone retired, Bishop Hilary Chisonga, a local Tanzanian bishop, succeeded him in Masasi but initially opposed moving the college to Buguruni. Eventually, however, the relocation was carried out with remaining staff, including Father James Potts, Father Martin Mbwana, and Mrs. Mary Peake.
+Following the re-establishment of St. Mark’s College on July 31, 1969, the first academic program was officially launched by Archbishop Leonard Beecher, Bishop Sepeku, and Bishop Laurean Rugambwa.
+At that time, Bishop Sepeku envisioned establishing a Faculty of Theology within the University of Dar es Salaam, but this vision was not realized.
+Within a short time, St. Mark’s College gained recognition, and Makerere University approved the introduction of a Diploma in Religious Studies in 1972. This program ended in 1978 due to the Kagera War, after which diocesan diploma programs were introduced.
+The college began with four students: Andrew Mkate (Ruvuma), Samuel Wandawanda (South West Tanganyika), Dominic Kifunda, and Andrew Mdoe (from the Dioceses of Zanzibar and Tanga).
+St. Mark’s College has continued to receive students from both within Tanzania and abroad. Bishop Sepeku envisioned having one unified theological college instead of three—St. Mark’s Buguruni, St. Cyprian’s Rondo, and St. Philip’s Kongwa. However, this proposal was rejected by the Synod in 1974 due to differences in traditions between UMCA and Church Missionary Society (CMS).
+At Rondo, Father George Briggs was appointed Principal of St. Cyprian’s College.
+In 1971, Father James Potts, who had been serving as Principal of St. Mark’s, returned to Europe, and Father Martin Mbwana took over leadership.
+Mrs. Mary Peake served in multiple roles, including librarian, English teacher, and caretaker for visiting staff.
+Today, the college continues to focus on theological education and training under the leadership of Rev. Canon Kalistus Komba.
+</p>
+</section>
+
+<!-- ADMISSION -->
+<section class="fade">
+<h2 class="section-title">Admissions</h2>
+<p>Apply now to join our academic and spiritual journey.</p>
+<button class="btn"><a href="admission.html">Apply Now</a></button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact fade">
+<h2 class="section-title">Contact Us</h2>
+<p>Dar es Salaam, Tanzania</p>
+<p>Email: info@stmarkuniversity.ac.tz</p>
+</section>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+  <!-- BRAND -->
+  <div class="footer-box">
+    <h2>St. Marks Theological college.</h2>
+    <p>
+      A faith-based institution under the Anglican Church of Tanzania,
+      committed to academic excellence, spiritual growth, and community transformation.
+    </p>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="footer-box">
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="admission.html">Admissions</a>
+    <a href="library.html">Library</a>
+    <a href="student.html">Student Portal</a>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="footer-box">
+    <h3>Contact</h3>
+    <p>📍 Buguluni,Dar es Salaam, Tanzania</p>
+    <p>📧 stmark'stheocollage@gmail.com</p>
+    <p>📞 +255656325703</p>
+  </div>
+
+</div>
+
+<div class="footer-bottom">
+  <p>© 2026 St. Mark Theological College | All Rights Reserved</p>
+</div>
+
+</footer>
+<script>
+
+// SCROLL ANIMATION
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', ()=>{
+  fades.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+
+// HEADER EFFECT    
+window.addEventListener("scroll", ()=>{
+  const header = document.getElementById("header");
+  header.style.background = window.scrollY > 50 ? "rgba(0,0,0,0.8)" : "rgba(0,0,0,0.4)";
+});
+</script>
+
+<!-- SLIDER SCRIPTS -->
+<script>
+const sliders = document.querySelectorAll(".slider");
+
+sliders.forEach(slider=>{
+  let images = slider.querySelectorAll("img");
+  let index = 0;
+
+  setInterval(()=>{
+    images.forEach(img=>img.classList.remove("active"));
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+  }, 3000);
+});
+</script>
+
+<script>
+document.querySelectorAll(".bg-slider").forEach(card=>{
+  const slides = card.querySelectorAll(".bg-slide");
+  let index = 0;
+
+  setInterval(()=>{
+    slides.forEach(s=>s.classList.remove("active"));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 3000);
+});
+
+
+</script>
+ <script>
+const token = localStorage.getItem("token");
+
+if(token){
+  document.getElementById("loginLink").innerText = "Logout";
+  document.getElementById("loginLink").onclick = ()=>{
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+  };
+}
+
+fetch("http://localhost:3000/api/auth/login")
+</script>
+</body>
+</html>
+
